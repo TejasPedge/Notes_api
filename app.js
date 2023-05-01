@@ -5,8 +5,10 @@ const {connection} = require('./DB');
 const {UserRoutes} = require('./SRC/Routes/User.routes');
 const {NoteRoutes} = require('./SRC/Routes/Notes.routes');
 const PORT = process.env.PORT || 8080;
+const cors = require('cors');
 const app = express();
 
+app.use(cors());
 app.use(express.json()); 
 app.use('/users',UserRoutes);
 app.use('/notes',NoteRoutes)
